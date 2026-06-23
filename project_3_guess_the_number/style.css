@@ -41,20 +41,22 @@ header{
     margin-bottom: 5px;
 }
 .container input[type="number"]{
-    padding: 5px;
+    padding: 8px;
     margin-bottom: 10px;
     width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
 }
-.container button{
+.container .submit-button{
     margin-top: 10px;
     padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
 }
-.container button:hover{
+.container .submit-button:hover{
     background-color: #45a049;
 }
 #result, #attempts{

@@ -17,13 +17,14 @@
         <form id="guess-form">
             <label for="guess-input">Your Guess:</label>
             <input type="number" id="guess-input" placeholder="Enter your guess" required>
-            <button type="submit">Submit Guess</button>
+            <input type="submit" id="submit-btn" class="submit-button" value="Submit Guess">
         </form>
-        <p id="PreviousGuess">Previous Guess: </p>
-        <p id="Remaining">Remaining Attempts: 10</p>
-        <div id="result"></div>
-        <div id="attempts"></div>
-        
+        <div class="result">
+            <p id="PreviousGuess">Previous Guess: <span class="guesses"></span> </p>
+            <p id="Remaining">Remaining Attempts: <span class="lastResult">10</span></p>
+            <p id="Message"></p>
+        </div>
+       
     </div>
         
     
