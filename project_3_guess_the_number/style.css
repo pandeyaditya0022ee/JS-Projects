@@ -3,6 +3,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+:root{
+    --shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
 html, body{
     height: 100%;
     width: 100%;
@@ -10,6 +13,7 @@ html, body{
 }
 body{
     font-family: Arial, sans-serif;
+    
 }
 header{
     background-color: #4CAF50;
@@ -26,16 +30,24 @@ header{
 }
 .container h1,p{
     margin-bottom: 10px;
+    
+}
+.container h1{
+    font-size: 3rem;
 }
 .container form{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: min(100%, 420px);
+    gap: 0.8rem;
+    margin-top: 20px;
+    padding: 1.35rem 1.5rem;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid rgba(255, 255, 255, 0.941);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
 }
 .container label{
     margin-bottom: 5px;
@@ -66,6 +78,42 @@ header{
 .container p#PreviousGuess, .container p#RemainingAttempts   {
     margin-top: 10px;
     font-size: 16px;
+}
+.container p#Message{
+    margin-top: 10px;
+    font-size: 16px;
+    color: red;
+}
+.result {
+    width: min(100%, 420px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 20px;
+    padding: 1.35rem 1.5rem;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid rgba(255, 255, 255, 0.941);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
+}
+.container #newGame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.container #newGame:hover{
+    background-color: #45a049;
 }
 
 
