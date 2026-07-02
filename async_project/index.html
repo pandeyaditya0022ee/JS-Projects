@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Change</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Project X</h1>
+    </header>
+    <div class="main">
+        <h1>Image Change</h1>
+        <p>Click the button to change the image:</p>
+        <button id="changeImageButton">Change Image</button>
+        <button id="stopImageButton">Stop Image</button>
+        <div class="image-container">
+            <img id="image" src="img1.jpg" alt="Image 1">
+        </div>
+    </div>
+</body>
+<script>
+    const images = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg", "img6.jpg", "img7.jpg", "img8.jpg", "img9.jpg"]; // Array of image sources
+    let currentIndex = 0; // Variable to keep track of the current image index
+    const randomIndex = () => Math.floor(Math.random() * images.length); // Function to generate a random index for the images array
+    let imageChangeInterval;
+    function changeImage() {
+        if (!imageChangeInterval) { // Check if the interval is already running
+            imageChangeInterval = setInterval(updateImage, 100); // Change image every second
+            function updateImage() {
+                currentIndex = randomIndex(); // Get a new random index
+                document.getElementById("image").src = images[currentIndex]; // Update the image source
+            }
+        }
+    }
+
+    function stopImage() {
+        clearInterval(imageChangeInterval);
+        imageChangeInterval = null; // Reset the interval ID
+        document.getElementById("image").src = images[currentIndex];
+    }
+
+    document.getElementById("changeImageButton").addEventListener("click", changeImage);
+    document.getElementById("stopImageButton").addEventListener("click", stopImage);
+</script>
+
+</html>
+
+</html>
