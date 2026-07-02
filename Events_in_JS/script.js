@@ -40,3 +40,8 @@
 // });
 
 // Remove Image  By clicking on it
+document.getElementById('images').addEventListener('click', function(event) {
+    if (event.target.tagName === 'IMG') {
+        event.target.remove();
+    }
+});
