@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body color Change</title>
+</head>
+<body style="background-color: white; margin: 0; padding: 0; font-family: Arial, sans-serif;">
+    <header style="text-align: center; background-color: green; padding: 5px;">
+        <h1>Project 5</h1>
+    </header>
+    <div class="main" style="text-align: center; margin-top: 50px;">
+        <h1>Body Color Change</h1>
+        <p>Click the button to change the body color:</p>
+        <button id="startButton" style="margin-right: 10px; border-radius: 5px; background-color: green; color: white; border: none; padding: 10px 20px; cursor: pointer;" >Start</button>
+        <button id="stopButton" style="margin-left: 10px; border-radius: 5px; background-color: red; color: white; border: none; padding: 10px 20px; cursor: pointer;">Stop</button>
+    </div>
+</body>
+<script>
+    const randomcolor = function () {
+        let hex = "0123456789ABCDEF";
+        let bodyColor = '#'; // Initial color
+        for (let i = 0; i < 6; i++) {
+            bodyColor += hex[Math.floor(Math.random() * 16)];
+        }
+        return bodyColor;
+    }
+    let intervalId; // Variable to store the interval ID
+
+    function startColorChange() {
+        if (!intervalId) { // Check if the interval is already running
+            intervalId = setInterval(changeColor, 100); // Change color every second
+        }
+        function changeColor() {
+            document.body.style.backgroundColor = randomcolor();
+        }
+    }
+    function stopColorChange() {
+        clearInterval(intervalId);
+        intervalId = null; // Reset the interval ID
+    }
+
+    document.getElementById("startButton").addEventListener("click", startColorChange);
+    document.getElementById("stopButton").addEventListener("click", stopColorChange);
+
+    
+</script>
+</html>
