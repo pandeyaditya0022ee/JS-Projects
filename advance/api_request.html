@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+</head>
+<body>
+    <header style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <h1 style="font-size: 28px; font-weight: bold;">API Request</h1>
+    </header>
+    <div class="main" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <p>Fetching API data...</p>
+        <button id="fetchData" style="margin: 10px; background-color: #007bff; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 20px;">Fetch Data</button>
+        <div id="avatar" style="width: 300px; height: 300px; margin: 10px;"></div>
+        <div id="name" style="font-size: 24px; font-weight: bold; margin: 10px;"></div>
+        <div id="BIO" style="text-align: center; margin: 10px;"></div>
+    </div>
+    
+</body>
+<script>
+    const url = 'https://api.github.com/users/pandeyaditya0022ee';
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    document.getElementById('fetchData').addEventListener('click', function(e){
+        e.preventDefault();
+        console.log('Fetching data from API...');
+        console.log('Request URL:', url);
+        xhr.send();
+        document.getElementById('fetchData').style.display = 'none';
+    });
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4){
+            const data = JSON.parse(xhr.responseText);
+            document.getElementById('avatar').innerHTML = `<img src="${data.avatar_url}" alt="Avatar" style="width: 100%; height: 100%; border-radius: 50%;">`;
+            document.getElementById('name').innerText = data.name;
+            document.getElementById('BIO').innerText = data.bio;    
+
+        }
+    }
+</script>
+</html>
